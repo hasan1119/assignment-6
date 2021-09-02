@@ -3,8 +3,10 @@
   const result = document.getElementById('result')
   const searchText = document.getElementById('search-text');
 
+
   // Search button event handler
   document.getElementById('search-btn').addEventListener('click', () => {
+      const searchValue = searchText.value;
       bookContainer.innerHTML = `
     <div class="w-100 h-100 d-flex justify-content-center align-items-center">
         <div class="spinner-border text-success" role="status">
@@ -25,12 +27,12 @@
           result.style.background = 'transparent';
           fetch(api)
               .then(res => res.json())
-              .then(data => showData(data));
+              .then(data => showData(data, searchValue));
       }
   });
 
 
-  const showData = (books) => {
+  const showData = (books, searchKeyword) => {
       // filtering array element with some condition 
       const newArr = books.docs.filter(element => element.cover_i !== undefined && element.author_name !== undefined && element.publisher !== undefined && element.title !== undefined && element.first_publish_year !== undefined);
       // validation for NO result
@@ -40,9 +42,10 @@
           result.style.background = '#1e272d';
           bookContainer.innerHTML = '';
       } else {
+
           const totalResult = books.numFound;
           const newParagraph = document.createElement('p');
-          newParagraph.innerHTML = `Total Search Result <b class="text-white">${totalResult}</b> books showing <b class='text-white'>${newArr.length}</b> books`;
+          newParagraph.innerHTML = `Total Search Result <b class="text-white">${totalResult}</b> books for <b class='searchKeyWord'>'${searchKeyword}'</b> showing <b class='text-white'>${newArr.length}</b> books`;
           result.style.background = '#1e272d';
           result.innerHTML = '';
           result.appendChild(newParagraph);
