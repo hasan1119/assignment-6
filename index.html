@@ -7,45 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Archive</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            height: 100vh;
-        }
-
-        .books {
-            margin-top: 20px;
-            height: 580px;
-            overflow-y: scroll;
-            overflow-x: hidden;
-        }
-
-        .button {
-            cursor: pointer;
-        }
-
-    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-3 mt-2">
-                <div class="input-group m-2">
-                    <input id="search-text" type="text" class="form-control" placeholder="Search book"
-                        aria-label="Search book" aria-describedby="basic-addon2">
-                    <span class="input-group-text button" id="search-btn">Search</span>
-                </div>
-                <h3>Book Detail:</h3>
-                <div id="book-details">
-
-                </div>
-            </div>
-            <div id="book-container" class="col-9 d-flex justify-content-around flex-wrap border-primary border books">
-
-            </div>
+    <section class="container p-2 pt-3">
+        <div class="input-group mb-3 w-50 mx-auto">
+            <input type="text" class="form-control" placeholder="Search your desire book..."
+                aria-label="Search your desire book" aria-describedby="basic-addon2">
+            <span class="input-group-text btn btn-success" id="basic-addon2">Search</span>
         </div>
+        <div class="w-100  border"></div>
+    </section>
 
-    </div>
+
     <script src="app.js"></script>
 </body>
 
